@@ -1,0 +1,15 @@
+currently supported units:
+
+temperature:
+	- celcius
+	- farenheit
+	- kelvin
+
+length:
+	- meter
+	- feet
+
+mass:
+	- kilograms
+	- pounds
+	- stones
