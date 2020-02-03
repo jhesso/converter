@@ -13,3 +13,7 @@ mass:
 	- kilograms
 	- pounds
 	- stones
+
+speed:
+	- miles per hour
+	- kilometers per hour

@@ -1,6 +1,7 @@
 todo:
 
 - add speed conversion (mph/kmh etc.)
+	- mph and kmh done, add other units like m/s etc.
 - extend length conversion to allow for converting from meters to millimeters and shit like that
 - add support for area conversions (square meter to square foot etc.)
 - add support for volume conversion (cubic meter to Gallons and shit like that)

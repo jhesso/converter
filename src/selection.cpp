@@ -3,6 +3,7 @@
 void	temperature(void);
 void	length(void);
 void	mass(void);
+void	speed(void);
 
 void	selection(void)
 {
@@ -11,7 +12,7 @@ void	selection(void)
 
 	selection = "";
 	std::cout << "available options:\n";
-	std::cout << " - temperature\n - length\n - mass\n\n";
+	std::cout << " - temperature\n - length\n - mass\n - speed\n\n";
 	std::cout << "what type of unit do you want to convert? ";
 	std::cin >> selection;
 	if (selection == "temperature")
@@ -28,5 +29,10 @@ void	selection(void)
 	{
 		std::cout << "you selected " << selection << " mass.\n";
 		mass();
+	}
+	else if (selection == "speed")
+	{
+		std::cout << "you selected " << selection << " speed.\n";
+		speed();
 	}
 }
