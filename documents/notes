@@ -1,0 +1,19 @@
+04/02/2020
+	just realized that the "main" for each conversion could be done in one fail. all the units and values could be asked in one function
+	from which we then would proceed to the correct converting functions. 
+	some pseudo code:
+		void	values(string selectedTypeOfUnit)
+			double	valueOriginal
+			char	unitOriginal
+			char	unitTarget
+		
+			std::cin >> unitOriginal
+			std::cin >> unitTarget
+			std::cin >> valueOriginal
+			if selectedTypeOfUnit == speed
+				speed(valueOriginal, unitOriginal, unitTarget);
+			else if selectedTypeOfUnit == area
+				area(valueOriginal, unitOriginal, unitTarget);
+	
+	could even handle error cases here.
+	
