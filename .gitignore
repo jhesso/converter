@@ -32,4 +32,5 @@
 *.app
 
 #folders
-./vscode
+.vscode
+.vscode/settings.json
