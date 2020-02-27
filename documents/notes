@@ -17,3 +17,17 @@
 	
 	could even handle error cases here.
 	
+27/02/2020
+	in time.cpp (and possibly on every conversion) could switch to using integers representing all available selections
+	for example:
+		int unitO;
+		available units: 1 = minutes, 2 = seconds, 3 = hours, 4 = milliseconds, 5 = days etc...
+	instead of using strings (in time conversion) or chars to select the unit. could make the user experiense easier
+	and to better avoid user mistakes (typos etc.)
+
+	in conversions when selecting types of units (target and original), could have a seperate function in which it is done
+	this way theres no need to do so many if/while conditions, only one would be needed. also could start using cases instead of
+	if conditions to make it more readable.
+
+28/02/2020
+	there has to be a better way to do what timeconvertions.cpp does...

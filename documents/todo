@@ -8,7 +8,7 @@ todo:
 - add support for volume conversion (cubic meter to Gallons and shit like that)
 	- needs support for more units than gallons and liters 
 - extend weight conversion to allow for converting to more units, milligrams, grams etc.
-- add support for time conversion (seconds to microseconds or minutes etc.)
 - change the value and unit getting into its own function (check notes file)
+	- kinda what i did with time.cpp in unitSelection() function
 
 (reference unitconverters.net to find all the possible units)

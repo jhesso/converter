@@ -6,6 +6,7 @@ void	mass(void);
 void	speed(void);
 void	area(void);
 void	volume(void);
+void	time(void);
 
 void	selection(void)
 {
@@ -46,5 +47,10 @@ void	selection(void)
 	{
 		std::cout << "you selected " << selection << ".\n";
 		volume();
+	}
+	else if (selection == "time")
+	{
+		std::cout << "you selected " << selection << ".\n";
+		time();
 	}
 }
