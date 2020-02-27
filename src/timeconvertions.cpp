@@ -1,5 +1,7 @@
 #include "converter.hpp"
 
+// as stated in notes file. there has to be a better way to do this but this is the only thing i came up with for now.
+
 double			convertFromPicos(double timeO, double timeC, std::string unitT)
 {
 	if (unitT == "nanos")
