@@ -31,3 +31,6 @@
 
 28/02/2020
 	there has to be a better way to do what timeconvertions.cpp does...
+
+24/06/2020
+	started working on the value selection that replaces the "main" functions in each unit conversion

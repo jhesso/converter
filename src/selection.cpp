@@ -14,8 +14,9 @@ void	selection(void)
 	std::string		selection;
 
 	selection = "";
+	// need to change into using integers "1 = length, select the corresponding integer..."
 	std::cout << "available options:\n";
-	std::cout << " - temperature\n - length\n - mass\n - speed\n - area\n - volume\n\n";
+	std::cout << " - temperature\n - length\n - mass\n - speed\n - area\n - volume\n - time\n\n";
 	std::cout << "what type of unit do you want to convert? ";
 	std::cin >> selection;
 	if (selection == "temperature")

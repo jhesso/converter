@@ -1,0 +1,5 @@
+available units are:
+
+- 1 kilograms
+- 2 pounds
+- 3 stones

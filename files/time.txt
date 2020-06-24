@@ -1,0 +1,13 @@
+available units are:
+
+- 1 picoseconds
+- 2 nanoseconds
+- 3 microseconds
+- 4 milliseconds
+- 5 seconds
+- 6 minutes
+- 7 hours
+- 8 days
+- 9 weeks
+- 10 months
+- 11 years
