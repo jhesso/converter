@@ -34,3 +34,7 @@
 
 24/06/2020
 	started working on the value selection that replaces the "main" functions in each unit conversion
+
+24/06/2020
+	you could most likely make a function dedicated to opening and reading a file. atm its done seperately in 2 places with the exact
+	same code in both places.

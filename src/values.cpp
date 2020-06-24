@@ -3,6 +3,15 @@
 
 #include "converter.hpp"
 
+void	temperature(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget);
+void	length(void);
+void	mass(void);
+void	speed(void);
+void	area(void);
+void	volume(void);
+void	time(void);
+void	printError(int errorCode);
+
 void	printUnits(int selectedTypeOfUnit)
 {
 	std::string		strInput;
@@ -52,9 +61,14 @@ void	printUnits(int selectedTypeOfUnit)
 void	values(int selectedTypeOfUnit)
 {
 	double	valueOriginal;
+	double	valueConverted;
 	int		unitOriginal;
 	int		unitTarget;
 
+	valueOriginal = 0;
+	valueConverted = 0;
+	unitOriginal = 0;
+	unitTarget = 0;
 	std::cout << "Please select the original unit.\n";
 	printUnits(selectedTypeOfUnit);
 	std::cin >> unitOriginal;
@@ -62,5 +76,41 @@ void	values(int selectedTypeOfUnit)
 	std::cin >> unitTarget;
 	std::cout << "Please enter the original value: ";
 	std::cin >> valueOriginal;
+	// just making sure that target unit is not the same as original
+	// need to convert this into using the error functions!
+	if (unitOriginal == unitTarget)
+	{
+		std::cout << "your original unit is the same as target unit..\n";
+		return ;
+	}
 	// add a switch statement to continue to the correct type of unit.
+	switch (selectedTypeOfUnit)
+	{
+	case 1: // temperature
+		if (unitTarget != 1 && unitTarget != 2 && unitTarget != 3) // making sure that a proper unit is selected.
+			printError(1);
+		else
+			temperature(valueOriginal, valueConverted, unitOriginal, unitTarget);
+		break;
+	case 2: // length
+		length();
+		break;
+	case 3: // mass
+		mass();
+		break;
+	case 4: // speed
+		speed();
+		break;
+	case 5: // area
+		area();
+		break;
+	case 6: // volume
+		volume();
+		break;
+	case 7: // time
+		time(); 
+		break;
+	default:
+		break;
+	}
 }

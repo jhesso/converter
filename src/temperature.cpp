@@ -31,49 +31,42 @@ double	convertK(double tempo, char target)
 	return (converted);
 }
 
-void	temperature(void)
+void	temperature(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget)
 {
-	// works kind of as a main for the temperature conversion
-	double		tempo; // temperature original
-	double		tempc; // converted temperature
-	char		type; // type of the temperature we're converting from
-	char		target; // what we are converting to
+	char	type;
+	char	target;
 
-	// first make selection from which type of temperature you're converting from
 	type = 'a';
-	while (type != 'F' && type != 'C' && type != 'K') // here we have a little while loop to make sure we get the correct input we want from the user to try and limit false input
-	{	
-		std::cout << "please type out the correspondign character of the unit you're converting from (F, C or K): ";
-		std::cin >> type;
-		if (type != 'F' && type != 'C' && type != 'K')
-			std::cout << "please try again. make sure the character is a capital letter and that it is the correct one.\n";
-	}
-	// get the original temperature
-	std::cout << "please enter the temperature you want to convert: ";
-	std::cin >> tempo;
-	// get target unit
 	target = 'a';
-	while (target != 'F' && target != 'C' && target != 'K') // here we have a little while loop to make sure we get the correct input we want from the user to try and limit false input
-	{
-		std::cout << "Please enter the type you want to convert to (F, C or K): ";
-		std::cin >> target;
-		if (target != 'F' && target != 'C' && target != 'K')
-			std::cout << "please try again. make sure the character is a capital letter and that it is the correct one.\n";
-	}
-	tempc = 0;
-	if (target == type) // checking that they're not trying to convert from for example celcius back to celcius as that could cause problems.
-	{
-		std::cout << tempo << type << " = " << tempo << target << std::endl;
-		return ;
-	}
+	if (unitOriginal == 1)
+		valueConverted = convertF(valueOriginal, unitTarget);
+	else if (unitOriginal == 2)
+		valueConverted = convertC(valueOriginal, unitTarget);
 	else
-	{	
-		if (type == 'F')
-			tempc = convertF(tempo, target);
-		else if (type == 'C')
-			tempc = convertC(tempo, target);
+		valueConverted = convertK(valueOriginal, unitTarget);
+	if (unitOriginal == 1)
+	{
+		type = 'F';
+		if (unitTarget == 2)
+			target = 'C';
 		else
-			tempc = convertK(tempo, target);
+			target = 'K';
 	}
-	std::cout << tempo << type << " = " << tempc << target << std::endl;
+	if (unitOriginal == 2)
+	{
+		type = 'C';
+		if (unitTarget == 1)
+			target = 'F';
+		else
+			target = 'K';
+	}
+	if (unitOriginal == 3)
+	{
+		type = 'K';
+		if (unitTarget == 1)
+			target = 'F';
+		else
+			target = 'C';
+	}
+	std::cout << valueOriginal << type << " = " << valueConverted << target << std::endl;
 }
