@@ -14,7 +14,7 @@ double	convertToKmh(double speedOriginal, double speedConverted, char unitTarget
 	return (speedConverted);
 }
 
-void	speed(void)
+void	speed(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
 {
 	// works kind of as a main for the speed conversion
 	double	speedOriginal; // original speed

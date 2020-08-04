@@ -12,7 +12,7 @@ double convertToGallons(double volumeOriginal, double volumeConverted, char unit
 	return (volumeConverted);
 }
 
-void	volume(void)
+void	volume(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
 {
 	// acts as a "main" for volume conversion.
 	double		volumeOriginal;

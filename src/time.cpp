@@ -60,7 +60,7 @@ std::string		unitSelection(void)
 	return (unit);
 }
 
-void	time(void)
+void	time(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
 {
 	// works as a main for time conversion
 	double			timeO;	// time original

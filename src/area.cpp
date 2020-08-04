@@ -8,7 +8,7 @@ double	convertToSqrMtr(double areaOriginal, double areaConverted, char targetUni
 	return (areaConverted);
 }
 
-void	area(void) // "main" for the area conversion
+void	area(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier) // "main" for the area conversion
 {
 	double	areaOriginal;
 	double	areaConverted;

@@ -1,0 +1,66 @@
+Here I will explain what each file contains and what each function does.
+
+main.cpp
+    main.cpp is obviously the starting point of the conversion program
+    I wanted to keep main as simple and short as possible. All it does is it creates a loop that will keep running
+    the program until the user types in the command 'exit'. Commands are gathered as strings on line 22 and theres
+    a simple if-else statement checking which command was used.
+
+converter.hpp
+    converter.hpp is the header file used in this program. it contains all the #includes that are used. so that
+    I don't need to type them out multiple times to each .cpp file. currently it contains nothing else than the includes.
+
+help.cpp
+    help.cpp contains the commands- and help functions that are used in main.cpp
+    
+    The commands function basically just lists all the available commands to the user
+    (This could actually be switched to use the file function and all this info could be read from a .txt file)
+
+    The help function prints some basic information of the program.
+    (this could aswell be just a .txt file and read with the file function.)
+
+ selection.cpp
+    selection.cpp contains the selection function which is used to determine what type of unit is being converted.
+    The selection is now done with the user entering an integer that corresponds to a unit (listed to the user beforehand)
+
+values.cpp
+    values.cpp contains the values function and a function used to read and print out the contents of files containing
+    all the units that can be used in the conversion.
+
+    The values function is used to get the types of units needed in the conversion (target and original) as well as
+    the original value we are converting from.
+
+    the printUnits function is used to print out all the available units that can used in the selection conversion.
+    (the ifstream shit could be done in a seperate function because its used in multiple funtions[check todo file])
+
+errorcodes.cpp
+    errorcodes.cpp contains the printError function
+
+    The printError function is used to print out various error messages contained in ../files/errors/ folder.
+
+temperature.cpp
+    temperature.cpp contains the functions used in temperature conversion.
+
+length.cpp
+    length.cpp contains the functions used in length conversion.
+
+mass.cpp
+    mass.cpp contains the functions used in mass conversion.
+
+speed.cpp
+    speed.cpp contains the functions used in speed conversion.
+
+area.cpp
+    area.cpp contains the functions used in area conversion.
+
+volume.cpp
+    volume.cpp contains the functions used in volume conversion.
+
+time.cpp
+    time.cpp contains the functions used in time conversion.
+
+timeconversions.cpp
+    timeconversions.cpp contains the time conversion formulas. (yes, I know its really really ugly)
+
+Makefile
+    The Makefile is a simple makefile I used for testing on linux.

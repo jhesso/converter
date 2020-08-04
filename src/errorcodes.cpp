@@ -12,13 +12,16 @@ void	printError(int errorCode)
 	case 1: // error selecting a proper target unit
 		fileName = "../files/errors/badTarget.txt";
 		break;
+	case 2: // error selecting a proper unit in selection.cpp
+		fileName = "../files/errors/badSelection.txt";
+		break;
 	default:
 		break;
 	}
 	std::ifstream inf(fileName, std::ifstream::in);
 	if (!inf)
 	{
-		std::cout << "could not open file length.txt";
+		std::cout << "could not open file.";
 		return ;
 	}
 	while (inf)
