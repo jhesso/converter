@@ -24,11 +24,6 @@ double	convertToStone(double valueOriginal, double valueConverted, int unitTarge
 
 void	mass(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
 {
-	/*std::cout << "available units are k = kilogram(kg), l = pound(lb) and s = stone\n";
-	std::cout << "Please give the unit you're converting from: ";*/
-	
-	//unit == unitOriginal
-	//target == unitTarget
 	double		tempValue;
 
 	tempValue = 0;
@@ -85,45 +80,4 @@ void	mass(double valueOriginal, double valueConverted, int unitOriginal, int uni
 		break;
 	}
 	getType(identifier, unitOriginal, unitTarget, valueOriginal, valueConverted);
-	/*if (unit == 'k')
-	{
-			converted = convertk(original, converted, target);
-			if (target == 's')
-			{
-				original = converted; // saving the converted value (which is the amount of pounds the original kilogram value is so we can send the variables in the original order to convertToStone)
-				converted =	convertToStone(original, converted, target);
-				std::cout << original << "kg" << " = " << converted << " stones" << std::endl;
-			}
-			else
-				std::cout << original << "kg" << " = " << converted << "lb" << std::endl;
-	}
-	else if (unit == 'l')
-	{
-		if (target == 's')
-		{
-			converted = convertToStone(original, converted, target);
-			std::cout << original << "lb" << " = " << converted << " stones" << std::endl;
-		}
-		else
-		{
-			converted = convertl(original, converted, target);
-			std::cout << original << "lb" << " = " << converted << "kg" << std::endl;
-		}
-	}
-	else if (unit == 's')
-	{
-		if (target == 'l')
-		{
-			converted = convertToStone(original, converted, target);
-			std::cout << original << " stones" << " = " << converted << "lb" << std::endl;
-		}
-		else if (target == 'k')
-		{
-			converted = convertToStone(original, converted, target);
-			original = converted;
-			converted = convertl(original, converted, target);
-			std::cout << original / 14 << " stones = " << converted << "kg" << std::endl; 
-		}// dividing original by 14 here because original is the amount of stones converted to pounds
-		// which is 14x the amount of stones
-	}*/
 }

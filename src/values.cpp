@@ -104,13 +104,13 @@ void	values(int selectedTypeOfUnit, int identifier)
 		else
 			mass(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
-	/*case 4: // speed
+	case 4: // speed
 		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			speed(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
-	case 5: // area
+	/*case 5: // area
 		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else

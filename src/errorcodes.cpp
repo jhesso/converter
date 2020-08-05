@@ -15,7 +15,11 @@ void	printError(int errorCode)
 	case 2: // error selecting a proper unit in selection.cpp
 		fileName = "../files/errors/badSelection.txt";
 		break;
+	case 3:
+		fileName = "../files/errors/badUnitSelected.txt";
+		break;
 	default:
+		fileName = "../files/errors/default.txt";
 		break;
 	}
 	std::ifstream inf(fileName, std::ifstream::in);
