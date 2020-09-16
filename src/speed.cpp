@@ -39,6 +39,7 @@ void	speed(double valueOriginal, double valueConverted, int unitOriginal, int un
 			valueConverted = convertToMph(valueOriginal, valueConverted);
 			break;
 		default:
+			printError(3);
 			break;
 		}
 		break;

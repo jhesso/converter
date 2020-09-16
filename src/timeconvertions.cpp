@@ -1,278 +1,282 @@
 #include "converter.hpp"
 
 // as stated in notes file. there has to be a better way to do this but this is the only thing i came up with for now.
+// its really interesting to see how i have implemented shit like this. as i was working on the new way to get the user input
+// I started imagining using something like exponents and a way to determine the exponent so i could probably get away with 
+// half of one of these functions.. ofc. atm im way too lazy to do that so it will need to be at a later date :)
+// hello future me! (this was written on 16/9/2020)
 
-double			convertFromPicos(double timeO, double timeC, std::string unitT)
+double			convertFromPicos(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "nanos")
-		timeC = timeO / 1000;
-	if (unitT == "micros")
-		timeC = timeO / 1000 / 1000;
-	if (unitT == "ms")
-		timeC = timeO / 1000 / 1000 / 1000;
-	if (unitT == "s")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000;
-	if (unitT == "min")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60;
-	else if (unitT == "h")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60 / 60;
-	else if (unitT == "d")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24;
-	else if (unitT == "week")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7;
-	else if (unitT == "month")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
-	else if (unitT == "y")
-		timeC = timeO / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
-	return (timeC);
+	if (unitTarget == 2)
+		valueConverted = valueOriginal / 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal / 1000 / 1000;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60;
+	else if (unitTarget == 7)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60 / 60;
+	else if (unitTarget == 8)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24;
+	else if (unitTarget == 9)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7;
+	else if (unitTarget == 10)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
+	else if (unitTarget == 11)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
+	return (valueConverted);
 }
 
-double			convertFromNanos(double timeO, double timeC, std::string unitT)
+double			convertFromNanos(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "micros")
-		timeC = timeO / 1000;
-	if (unitT == "ms")
-		timeC = timeO / 1000 / 1000;
-	if (unitT == "s")
-		timeC = timeO / 1000 / 1000 / 1000;
-	if (unitT == "min")
-		timeC = timeO / 1000 / 1000 / 1000 / 60;
-	else if (unitT == "h")
-		timeC = timeO / 1000 / 1000 / 1000 / 60 / 60;
-	else if (unitT == "d")
-		timeC = timeO / 1000 / 1000 / 1000 / 60 / 60/ 24;
-	else if (unitT == "week")
-		timeC = timeO / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7;
-	else if (unitT == "month")
-		timeC = timeO / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
-	else if (unitT == "y")
-		timeC = timeO / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
-	else if (unitT == "picos")
-		timeC = timeO * 1000;
-	return (timeC);
+	if (unitTarget == 3)
+		valueConverted = valueOriginal / 1000;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal / 1000 / 1000;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60;
+	else if (unitTarget == 7)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60 / 60;
+	else if (unitTarget == 8)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60 / 60/ 24;
+	else if (unitTarget == 9)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7;
+	else if (unitTarget == 10)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
+	else if (unitTarget == 11)
+		valueConverted = valueOriginal / 1000 / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
+	else if (unitTarget == 1)
+		valueConverted = valueOriginal * 1000;
+	return (valueConverted);
 }
 
-double			convertFromMicros(double timeO, double timeC, std::string unitT)
-{
-	if (unitT == "ms")
-		timeC = timeO / 1000;
-	if (unitT == "s")
-		timeC = timeO / 1000 / 1000;
-	if (unitT == "min")
-		timeC = timeO / 1000 / 1000 / 60;
-	else if (unitT == "h")
-		timeC = timeO / 1000 / 1000 / 60 / 60;
-	else if (unitT == "d")
-		timeC = timeO / 1000 / 1000 / 60 / 60/ 24;
-	else if (unitT == "week")
-		timeC = timeO / 1000 / 1000 / 60 / 60/ 24 / 7;
-	else if (unitT == "month")
-		timeC = timeO / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
-	else if (unitT == "y")
-		timeC = timeO / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
-	else if (unitT == "nanos")
-		timeC = timeO  * 1000;
-	else if (unitT == "picos")
-		timeC = timeO * 1000 * 1000;
-	return (timeC);
+double			convertFromMicros(double valueOriginal, double valueConverted, int unitTarget)
+{		// this is where i left off
+	if (unitTarget == 4)
+		valueConverted = valueOriginal / 1000;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal / 1000 / 1000;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal / 1000 / 1000 / 60;
+	else if (unitTarget == 7)
+		valueConverted = valueOriginal / 1000 / 1000 / 60 / 60;
+	else if (unitTarget == 8)
+		valueConverted = valueOriginal / 1000 / 1000 / 60 / 60/ 24;
+	else if (unitTarget == 9)
+		valueConverted = valueOriginal / 1000 / 1000 / 60 / 60/ 24 / 7;
+	else if (unitTarget == 10)
+		valueConverted = valueOriginal / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
+	else if (unitTarget == 11)
+		valueConverted = valueOriginal / 1000 / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
+	else if (unitTarget == 2)
+		valueConverted = valueOriginal  * 1000;
+	else if (unitTarget == 1)
+		valueConverted = valueOriginal * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromMs(double timeO, double timeC, std::string unitT)
+double			convertFromMs(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "s")
-		timeC = timeO / 1000;
-	if (unitT == "min")
-		timeC = timeO / 1000 / 60;
-	else if (unitT == "h")
-		timeC = timeO / 1000 / 60 / 60;
-	else if (unitT == "d")
-		timeC = timeO / 1000 / 60 / 60/ 24;
-	else if (unitT == "week")
-		timeC = timeO / 1000 / 60 / 60/ 24 / 7;
-	else if (unitT == "month")
-		timeC = timeO / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
-	else if (unitT == "y")
-		timeC = timeO / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
-	else if (unitT == "micros")
-		timeC = timeO * 1000;
-	else if (unitT == "nanos")
-		timeC = timeO * 1000 * 1000;
-	else if (unitT == "picos")
-		timeC = timeO * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 5)
+		valueConverted = valueOriginal / 1000;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal / 1000 / 60;
+	else if (unitTarget == 7)
+		valueConverted = valueOriginal / 1000 / 60 / 60;
+	else if (unitTarget == 8)
+		valueConverted = valueOriginal / 1000 / 60 / 60/ 24;
+	else if (unitTarget == 9)
+		valueConverted = valueOriginal / 1000 / 60 / 60/ 24 / 7;
+	else if (unitTarget == 10)
+		valueConverted = valueOriginal / 1000 / 60 / 60/ 24 / 7 / 4.3482142857;
+	else if (unitTarget == 11)
+		valueConverted = valueOriginal / 1000 / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
+	else if (unitTarget == 3)
+		valueConverted = valueOriginal * 1000;
+	else if (unitTarget == 2)
+		valueConverted = valueOriginal * 1000 * 1000;
+	else if (unitTarget == 1)
+		valueConverted = valueOriginal * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromSec(double timeO, double timeC, std::string unitT)
+double			convertFromSec(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "min")
-		timeC = timeO / 60;
-	else if (unitT == "h")
-		timeC = timeO / 60 / 60;
-	else if (unitT == "d")
-		timeC = timeO / 60 / 60/ 24;
-	else if (unitT == "week")
-		timeC = timeO / 60 / 60/ 24 / 7;
-	else if (unitT == "month")
-		timeC = timeO / 60 / 60/ 24 / 7 / 4.3482142857;
-	else if (unitT == "y")
-		timeC = timeO / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
-	else if (unitT == "ms")
-		timeC = timeO * 1000;
-	else if (unitT == "micros")
-		timeC = timeO * 1000 * 1000;
-	else if (unitT == "nanos")
-		timeC = timeO * 1000 * 1000 * 1000;
-	else if (unitT == "picos")
-		timeC = timeO * 1000 * 1000 * 1000 * 1000;
-	return (timeC);	
+	if (unitTarget == 6)
+		valueConverted = valueOriginal / 60;
+	else if (unitTarget == 7)
+		valueConverted = valueOriginal / 60 / 60;
+	else if (unitTarget == 8)
+		valueConverted = valueOriginal / 60 / 60/ 24;
+	else if (unitTarget == 9)
+		valueConverted = valueOriginal / 60 / 60/ 24 / 7;
+	else if (unitTarget == 10)
+		valueConverted = valueOriginal / 60 / 60/ 24 / 7 / 4.3482142857;
+	else if (unitTarget == 1)
+		valueConverted = valueOriginal / 60 / 60/ 24 / 7 / 4.3482142857 / 12;
+	else if (unitTarget == 4)
+		valueConverted = valueOriginal * 1000;
+	else if (unitTarget == 3)
+		valueConverted = valueOriginal * 1000 * 1000;
+	else if (unitTarget == 2)
+		valueConverted = valueOriginal * 1000 * 1000 * 1000;
+	else if (unitTarget == 1)
+		valueConverted = valueOriginal * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);	
 }
 
-double			convertFromMinutes(double timeO, double timeC, std::string unitT)
+double			convertFromMinutes(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "h")
-		timeC = timeO / 60;
-	if (unitT == "d")
-		timeC = timeO / 60 / 24;
-	if (unitT == "week")
-		timeC = timeO / 60 / 24 / 7;
-	if (unitT == "month")
-		timeC = timeO / 60 / 24 / 7 / 4.3482142857;
-	if (unitT == "y")
-		timeC = timeO / 60 / 24 / 7 / 4.3482142857 / 12;
-	if (unitT == "s")
-		timeC = timeO * 60;
-	if (unitT == "ms")
-		timeC = timeO * 60 * 1000;
-	if (unitT == "micros")
-		timeC = timeO * 60 * 1000 * 1000;
-	if (unitT == "nanos")
-		timeC = timeO * 60 * 1000 * 1000 * 1000;
-	if (unitT == "picos")
-		timeC = timeO * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 7)
+		valueConverted = valueOriginal / 60;
+	if (unitTarget == 8)
+		valueConverted = valueOriginal / 60 / 24;
+	if (unitTarget == 9)
+		valueConverted = valueOriginal / 60 / 24 / 7;
+	if (unitTarget == 10)
+		valueConverted = valueOriginal / 60 / 24 / 7 / 4.3482142857;
+	if (unitTarget == 11)
+		valueConverted = valueOriginal / 60 / 24 / 7 / 4.3482142857 / 12;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal * 60;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal * 60 * 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal * 60 * 1000 * 1000;
+	if (unitTarget == 2)
+		valueConverted = valueOriginal * 60 * 1000 * 1000 * 1000;
+	if (unitTarget == 1)
+		valueConverted = valueOriginal * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromHours(double timeO, double timeC, std::string unitT)
+double			convertFromHours(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if(unitT == "d")
-		timeC = timeO / 24;
-	if(unitT == "week")
-		timeC = timeO / 24 / 7;
-	if(unitT == "month")
-		timeC = timeO / 24 / 7 / 4.3482142857;
-	if(unitT == "y")
-		timeC = timeO / 24 / 7 / 4.3482142857 / 12;
-	if(unitT == "min")
-		timeC = timeO * 60;
-	if(unitT == "s")
-		timeC = timeO * 60 * 60;
-	if(unitT == "ms")
-		timeC = timeO * 60 * 60 * 1000;
-	if(unitT == "micros")
-		timeC = timeO * 60 * 60 * 1000 * 1000;
-	if(unitT == "nanos")
-		timeC = timeO * 60 * 60 * 1000 * 1000 * 1000;
-	if(unitT == "picos")
-		timeC = timeO * 60 * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if(unitTarget == 8)
+		valueConverted = valueOriginal / 24;
+	if(unitTarget == 9)
+		valueConverted = valueOriginal / 24 / 7;
+	if(unitTarget == 10)
+		valueConverted = valueOriginal / 24 / 7 / 4.3482142857;
+	if(unitTarget == 11)
+		valueConverted = valueOriginal / 24 / 7 / 4.3482142857 / 12;
+	if(unitTarget == 6)
+		valueConverted = valueOriginal * 60;
+	if(unitTarget == 5)
+		valueConverted = valueOriginal * 60 * 60;
+	if(unitTarget == 4)
+		valueConverted = valueOriginal * 60 * 60 * 1000;
+	if(unitTarget == 3)
+		valueConverted = valueOriginal * 60 * 60 * 1000 * 1000;
+	if(unitTarget == 2)
+		valueConverted = valueOriginal * 60 * 60 * 1000 * 1000 * 1000;
+	if(unitTarget == 1)
+		valueConverted = valueOriginal * 60 * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromDays(double timeO, double timeC, std::string unitT)
+double			convertFromDays(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "week")
-		timeC = timeO / 7;
-	if (unitT == "month")
-		timeC = timeO / 7 / 4.3482142857;
-	if (unitT == "y")
-		timeC = timeO / 7 / 4.3482142857 / 12;
-	if (unitT == "h")
-		timeC = timeO * 24;
-	if (unitT == "min")
-		timeC = timeO * 24 * 60;
-	if (unitT == "s")
-		timeC = timeO * 24 * 60 * 60;
-	if (unitT == "ms")
-		timeC = timeO * 24 * 60 * 60 * 1000;
-	if (unitT == "micros")
-		timeC = timeO * 24 * 60 * 60 * 1000 * 1000;
-	if (unitT == "nanos")
-		timeC = timeO * 24 * 60 * 60 * 1000 * 1000 * 1000;
-	if (unitT == "picos")
-		timeC = timeO * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 9)
+		valueConverted = valueOriginal / 7;
+	if (unitTarget == 10)
+		valueConverted = valueOriginal / 7 / 4.3482142857;
+	if (unitTarget == 11)
+		valueConverted = valueOriginal / 7 / 4.3482142857 / 12;
+	if (unitTarget == 7)
+		valueConverted = valueOriginal * 24;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal * 24 * 60;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal * 24 * 60 * 60;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal * 24 * 60 * 60 * 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal * 24 * 60 * 60 * 1000 * 1000;
+	if (unitTarget == 2)
+		valueConverted = valueOriginal * 24 * 60 * 60 * 1000 * 1000 * 1000;
+	if (unitTarget == 1)
+		valueConverted = valueOriginal * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromWeeks(double timeO, double timeC, std::string unitT)
+double			convertFromWeeks(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "month")
-		timeC = timeO / 4.3482142857;
-	if (unitT == "y")
-		timeC = timeO / 4.34821428570 / 12;
-	if (unitT == "d")
-		timeC = timeO * 7;
-	if (unitT == "h")
-		timeC = timeO * 7 * 24;
-	if (unitT == "min")
-		timeC = timeO * 7 * 24 * 60;
-	if (unitT == "s")
-		timeC = timeO * 7 * 24 * 60 * 60;
-	if (unitT == "ms")
-		timeC = timeO * 7 * 24 * 60 * 60 * 1000;
-	if (unitT == "micros")
-		timeC = timeO * 7 * 24 * 60 * 60 * 1000 * 1000;
-	if (unitT == "nanos")
-		timeC = timeO * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
-	if (unitT == "picos")
-		timeC = timeO * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 10)
+		valueConverted = valueOriginal / 4.3482142857;
+	if (unitTarget == 11)
+		valueConverted = valueOriginal / 4.34821428570 / 12;
+	if (unitTarget == 8)
+		valueConverted = valueOriginal * 7;
+	if (unitTarget == 7)
+		valueConverted = valueOriginal * 7 * 24;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal * 7 * 24 * 60;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal * 7 * 24 * 60 * 60;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal * 7 * 24 * 60 * 60 * 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal * 7 * 24 * 60 * 60 * 1000 * 1000;
+	if (unitTarget == 2)
+		valueConverted = valueOriginal * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
+	if (unitTarget == 1)
+		valueConverted = valueOriginal * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromMonths(double timeO, double timeC, std::string unitT)
+double			convertFromMonths(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "y")
-		timeC = timeO / 12;
-	if (unitT == "week")
-		timeC = timeO * 4.3482142857;
-	if (unitT == "d")
-		timeC = timeO * 4.3482142857 * 7;
-	if (unitT == "h")
-		timeC = timeO * 4.3482142857 * 7 * 24;
-	if (unitT == "min")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60;
-	if (unitT == "s")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60 * 60;
-	if (unitT == "ms")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60 * 60 * 1000;
-	if (unitT == "micros")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000;
-	if (unitT == "nanos")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
-	if (unitT == "picos")
-		timeC = timeO * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 11)
+		valueConverted = valueOriginal / 12;
+	if (unitTarget == 9)
+		valueConverted = valueOriginal * 4.3482142857;
+	if (unitTarget == 8)
+		valueConverted = valueOriginal * 4.3482142857 * 7;
+	if (unitTarget == 7)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60 * 60;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60 * 60 * 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000;
+	if (unitTarget == 2)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
+	if (unitTarget == 1)
+		valueConverted = valueOriginal * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }
 
-double			convertFromYears(double timeO, double timeC, std::string unitT)
+double			convertFromYears(double valueOriginal, double valueConverted, int unitTarget)
 {
-	if (unitT == "month")
-		timeC = timeO * 12;
-	if (unitT == "week")
-		timeC = timeO * 12 * 4.3482142857;
-	if (unitT == "d")
-		timeC = timeO * 12 * 4.3482142857 * 7;
-	if (unitT == "h")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24;
-	if (unitT == "min")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60;
-	if (unitT == "s")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60 * 60;
-	if (unitT == "ms")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000;
-	if (unitT == "micros")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000;
-	if (unitT == "nanos")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
-	if (unitT == "picos")
-		timeC = timeO * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
-	return (timeC);
+	if (unitTarget == 10)
+		valueConverted = valueOriginal * 12;
+	if (unitTarget == 9)
+		valueConverted = valueOriginal * 12 * 4.3482142857;
+	if (unitTarget == 8)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7;
+	if (unitTarget == 7)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24;
+	if (unitTarget == 6)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60;
+	if (unitTarget == 5)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60 * 60;
+	if (unitTarget == 4)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000;
+	if (unitTarget == 3)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000;
+	if (unitTarget == 2)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000;
+	if (unitTarget == 1)
+		valueConverted = valueOriginal * 12 * 4.3482142857 * 7 * 24 * 60 * 60 * 1000 * 1000 * 1000 * 1000;
+	return (valueConverted);
 }

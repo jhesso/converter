@@ -3,7 +3,7 @@
 void    printAnswer(double valueOriginal, double valueConverted, std::string originalUnit, std::string targetUnit)
 {
     // here is where saving the results to a file should happen
-    std::cout << valueOriginal << originalUnit << " = " << valueConverted << targetUnit << std::endl;
+    std::cout << std::endl << valueOriginal << originalUnit << " = " << valueConverted << targetUnit << std::endl;
 }
 
 void    getTarget(int identifier, int unitOriginal, int unitTarget, double valueOriginal, double valueConverted, std::string originalUnit)
@@ -75,10 +75,10 @@ void    getTarget(int identifier, int unitOriginal, int unitTarget, double value
         switch (unitTarget)
         {
         case 1:
-            targetUnit = "square meter";
+            targetUnit = " square meter";
             break;
         case 2:
-            targetUnit = "square feet";
+            targetUnit = " square feet";
             break;
         default:
             break;
@@ -101,37 +101,37 @@ void    getTarget(int identifier, int unitOriginal, int unitTarget, double value
         switch (unitTarget)
         {
         case 1:
-            targetUnit = "picoseconds";
+            targetUnit = " picoseconds";
             break;
         case 2:
-            targetUnit = "nanoseconds";
+            targetUnit = " nanoseconds";
             break;
         case 3:
-            targetUnit = "microseconds";
+            targetUnit = " microseconds";
             break;
         case 4:
-            targetUnit = "milliseconds";
+            targetUnit = " milliseconds";
             break;
         case 5:
-            targetUnit = "seconds";
+            targetUnit = " seconds";
             break;
         case 6:
-            targetUnit = "minutes";
+            targetUnit = " minutes";
             break;
         case 7:
-            targetUnit = "hours";
+            targetUnit = " hours";
             break;
         case 8:
-            targetUnit = "days";
+            targetUnit = " days";
             break;
         case 9:
-            targetUnit = "weeks";
+            targetUnit = " weeks";
             break;
         case 10:
-            targetUnit = "months";
+            targetUnit = " months";
             break;
         case 11:
-            targetUnit = "years";
+            targetUnit = " years";
             break;
         default:
             break;
@@ -212,10 +212,10 @@ void    getType(int identifier, int unitOriginal, int unitTarget, double valueOr
         switch (unitOriginal)
         {
         case 1:
-            originalUnit = "square meter";
+            originalUnit = " square meter";
             break;
         case 2:
-            originalUnit = "square feet";
+            originalUnit = " square feet";
             break;
         default:
             break;
@@ -238,37 +238,37 @@ void    getType(int identifier, int unitOriginal, int unitTarget, double valueOr
         switch (unitOriginal)
         {
         case 1:
-            originalUnit = "picoseconds";
+            originalUnit = " picoseconds";
             break;
         case 2:
-            originalUnit = "nanoseconds";
+            originalUnit = " nanoseconds";
             break;
         case 3:
-            originalUnit = "microseconds";
+            originalUnit = " microseconds";
             break;
         case 4:
-            originalUnit = "milliseconds";
+            originalUnit = " milliseconds";
             break;
         case 5:
-            originalUnit = "seconds";
+            originalUnit = " seconds";
             break;
         case 6:
-            originalUnit = "minutes";
+            originalUnit = " minutes";
             break;
         case 7:
-            originalUnit = "hours";
+            originalUnit = " hours";
             break;
         case 8:
-            originalUnit = "days";
+            originalUnit = " days";
             break;
         case 9:
-            originalUnit = "weeks";
+            originalUnit = " weeks";
             break;
         case 10:
-            originalUnit = "months";
+            originalUnit = " months";
             break;
         case 11:
-            originalUnit = "years";
+            originalUnit = " years";
             break;
         default:
             break;

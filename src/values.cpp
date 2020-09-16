@@ -3,21 +3,10 @@
 
 #include "converter.hpp"
 
-void	temperature(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	length(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	mass(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	speed(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	area(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	volume(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	time(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier);
-void	printError(int errorCode);
-
 void	printUnits(int selectedTypeOfUnit)
 {
-	std::string		strInput;
 	std::string		fileName;
 
-	strInput = "";
 	fileName = "";
 	switch (selectedTypeOfUnit)
 	{
@@ -45,7 +34,8 @@ void	printUnits(int selectedTypeOfUnit)
 		default:
 			break;
 	}
-	std::ifstream inf(fileName, std::ifstream::in);
+	printFile(fileName);
+	/*std::ifstream inf(fileName, std::ifstream::in); // old code that i will keep around incase i find a bug and need to come back to this
 	if (!inf)
 	{
 		std::cout << "could not open file.";
@@ -55,7 +45,7 @@ void	printUnits(int selectedTypeOfUnit)
 	{
 		std::getline(inf, strInput);
 		std::cout << strInput << '\n';
-	}
+	}*/
 }
 
 void	values(int selectedTypeOfUnit, int identifier)
@@ -87,48 +77,49 @@ void	values(int selectedTypeOfUnit, int identifier)
 	switch (selectedTypeOfUnit)
 	{
 	case 1: // temperature
-		if (unitTarget < 1 && unitTarget > 3) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 3 || unitOriginal < 1 || unitOriginal > 3) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			temperature(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
 	case 2: // length
-		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 2 || unitOriginal < 1 || unitOriginal > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			length(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
 	case 3: // mass
-		if (unitTarget < 1 && unitTarget > 3) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 3 || unitOriginal < 1 || unitOriginal > 3) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			mass(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
 	case 4: // speed
-		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 2 || unitOriginal < 1 || unitOriginal > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			speed(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
-	/*case 5: // area
-		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
+	case 5: // area
+		if (unitTarget < 1 || unitTarget > 2 || unitOriginal < 1 || unitOriginal > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			area(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
 	case 6: // volume
-		if (unitTarget < 1 && unitTarget > 2) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 2 || unitOriginal < 1 || unitOriginal > 2) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			volume(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier);
 		break;
 	case 7: // time
-		if (unitTarget < 1 && unitTarget > 11) // making sure that a proper unit is selected.
+		if (unitTarget < 1 || unitTarget > 11 || unitOriginal < 1 || unitOriginal > 11) // making sure that a proper unit is selected.
 			printError(1);
 		else
 			time(valueOriginal, valueConverted, unitOriginal, unitTarget, identifier); 
-		break;*/
+		break;
 	default:
+		printError(4);
 		break;
 	}
 }

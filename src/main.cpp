@@ -1,3 +1,15 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//																											//
+//	       .__               .__                                                   __                		//
+//	  _____|__| _____ ______ |  |   ____     ____  ____   _______  __ ____________/  |_  ___________ 		//
+//	 /  ___/  |/     \\____ \|  | _/ __ \  _/ ___\/  _ \ /    \  \/ // __ \_  __ \   __\/ __ \_  __ \		//
+//	 \___ \|  |  Y Y  \  |_> >  |_\  ___/  \  \__(  <_> )   |  \   /\  ___/|  | \/|  | \  ___/|  | \/		//
+//	/____  >__|__|_|  /   __/|____/\___  >  \___  >____/|___|  /\_/  \___  >__|   |__|  \___  >__|   		//
+//	     \/         \/|__|             \/       \/           \/          \/                 \/       		//
+//																											//
+//																							by: Jhesso		//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "converter.hpp"
 // All libraries used are included in the header file. only include the header file on top of cpp files.
 
@@ -13,7 +25,9 @@ int		main(void)
 	
 	exit = false;
 	command = "";
-	std::cout << "\n\nwelcome to Jhesso's simple converter.\n\n";
+	// this is where i want to print out the ascii art and then a newline or two..
+	printFile("../documents/author");
+	std::cout << "\nwelcome to Jhesso's simple converter.\n\n";
 	while (exit != true)
 	{
 		

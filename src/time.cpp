@@ -1,45 +1,45 @@
 #include "converter.hpp"
 
-double			convertFromPicos(double timeO, double timeC, std::string unitT);
-double			convertFromNanos(double timeO, double timeC, std::string unitT);
-double			convertFromMicros(double timeO, double timeC, std::string unitT);
-double			convertFromMs(double timeO, double timeC, std::string unitT);
-double			convertFromSec(double timeO, double timeC, std::string unitT);
-double			convertFromMinutes(double timeO, double timeC, std::string unitT);
-double			convertFromHours(double timeO, double timeC, std::string unitT);
-double			convertFromDays(double timeO, double timeC, std::string unitT);
-double			convertFromWeeks(double timeO, double timeC, std::string unitT);
-double			convertFromMonths(double timeO, double timeC, std::string unitT);
-double			convertFromYears(double timeO, double timeC, std::string unitT);
+double			convertFromPicos(double timeO, double timeC, int unitTarget);
+double			convertFromNanos(double timeO, double timeC, int unitTarget);
+double			convertFromMicros(double timeO, double timeC, int unitTarget);
+double			convertFromMs(double timeO, double timeC, int unitTarget);
+double			convertFromSec(double timeO, double timeC, int unitTarget);
+double			convertFromMinutes(double timeO, double timeC, int unitTarget);
+double			convertFromHours(double timeO, double timeC, int unitTarget);
+double			convertFromDays(double timeO, double timeC, int unitTarget);
+double			convertFromWeeks(double timeO, double timeC, int unitTarget);
+double			convertFromMonths(double timeO, double timeC, int unitTarget);
+double			convertFromYears(double timeO, double timeC, int unitTarget);
 
-double			chooseConvert(double timeO, double timeC, std::string unitO, std::string unitT)
+double			chooseConvert(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget)
 {
-	if (unitO == "picos")
-		timeC = convertFromPicos(timeO, timeC, unitT);
-	if (unitO == "nanos")
-		timeC = convertFromNanos(timeO, timeC, unitT);
-	if (unitO == "micros")
-		timeC = convertFromMicros(timeO, timeC, unitT);
-	if (unitO == "ms")
-		timeC = convertFromMs(timeO, timeC, unitT);
-	if (unitO == "s")
-		timeC = convertFromSec(timeO, timeC, unitT);
-	if (unitO == "min")
-		timeC = convertFromMinutes(timeO, timeC, unitT);
-	if (unitO == "h")
-		timeC = convertFromHours(timeO, timeC, unitT);
-	if (unitO == "d")
-		timeC = convertFromDays(timeO, timeC, unitT);
-	if (unitO == "week")
-		timeC = convertFromWeeks(timeO, timeC, unitT);
-	if (unitO == "month")
-		timeC = convertFromMonths(timeO, timeC, unitT);
-	if (unitO == "y")
-		timeC = convertFromYears(timeO, timeC, unitT);
-	return (timeC);
+	if (unitOriginal == 1)
+		valueConverted = convertFromPicos(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 2)
+		valueConverted = convertFromNanos(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 3)
+		valueConverted = convertFromMicros(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 4)
+		valueConverted = convertFromMs(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 5)
+		valueConverted = convertFromSec(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 6)
+		valueConverted = convertFromMinutes(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 7)
+		valueConverted = convertFromHours(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 8)
+		valueConverted = convertFromDays(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 9)
+		valueConverted = convertFromWeeks(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 10)
+		valueConverted = convertFromMonths(valueOriginal, valueConverted, unitTarget);
+	if (unitOriginal == 11)
+		valueConverted = convertFromYears(valueOriginal, valueConverted, unitTarget);
+	return (valueConverted);
 }
 
-std::string		unitSelection(void)
+/*std::string		unitSelection(void) // I'm fairly certain this function isnt needed for anything anymore but ill keep it to make sure
 {
 	std::string		unit;
 	std::string		options[] = {"picos", "nanos", "micros", "ms", "s", "min", "h", "d", "week", "month", "y"};
@@ -58,40 +58,433 @@ std::string		unitSelection(void)
 	std::cout << "Please try again.\n";
 	unit = "false";
 	return (unit);
-}
+}*/
 
-void	time(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
+void			time(double valueOriginal, double valueConverted, int unitOriginal, int unitTarget, int identifier)
 {
-	// works as a main for time conversion
-	double			timeO;	// time original
-	double			timeC;	// time converted
-	std::string		unitO;	// unit original || using string here so its easier to identify the unit (ms = millisecond, s = second, micros = microsecond etc.)
-	std::string		unitT;	// unit target   || using string here so its easier to identify the unit /\
-
-	unitO = "";
-	std::cout << "available units are: picos = picoseconds, nanos = nanoseconds, micros = microseconds,\
-	ms = milliseconds, s = seconds, min = minutes, h = hours, d = days, week, month, y = years\n" ;
-	std::cout << "Please type the unit you're converting from: ";
-	unitO = unitSelection();
-	while (unitO == "false")
-		unitSelection();
-	unitT = "";
-	std::cout << "available units are: s =seconds, min = minutes, h = hours, d = days, ms = milliseconds, week,\
-	 month, y = years, micros = microseconds, nanos = nanoseconds, picos = picoseconds\n" ;
-	std::cout << "Please type the unit you're converting to: ";
-	unitT = unitSelection();
-	while (unitT == "false")
-		unitSelection();
-	std::cout << "Please enter the amount you're converting: \n";
-	std::cin >> timeO;
-	if (unitT == unitO)
+	switch (unitOriginal)
 	{
-		std::cout << timeO << unitO << " = " << timeC << unitT << std::endl;
-		return ;
+	case 1:
+		switch (unitTarget)
+		{
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 2:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 3:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 4:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 5:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 6:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 7:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 8:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 9:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 10:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 11:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	case 11:
+		switch (unitTarget)
+		{
+			case 1:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 2:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 3:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 4:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 5:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 6:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 7:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 8:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 9:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			case 10:
+				valueConverted = chooseConvert(valueOriginal, valueConverted, unitOriginal, unitTarget);
+				break;
+			default:
+				printError(3);
+				break;
+		}
+		break;
+	default:
+		printError(3);
+		break;
 	}
-	else
-	{
-		timeC = chooseConvert(timeO, timeC, unitO, unitT);
-		std::cout << timeO << unitO << " = " << timeC << unitT << std::endl;	
-	}
+	getType(identifier, unitOriginal, unitTarget, valueOriginal, valueConverted);
 }

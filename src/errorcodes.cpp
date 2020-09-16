@@ -1,11 +1,27 @@
 #include "converter.hpp"
 
-void	printError(int errorCode)
-{
+void	printFile(std::string fileName){
 	std::string strInput;
-	std::string fileName;
 
 	strInput = "";
+	std::ifstream inf(fileName, std::ifstream::in);
+	if (!inf)
+	{
+		std::cout << "could not open file.";
+		return ;
+	}
+	while (inf)
+	{
+		std::getline(inf, strInput);
+		std::cout << strInput << '\n';
+	}
+}
+
+void	printError(int errorCode)
+{
+	
+	std::string fileName;
+
 	fileName = "";
 	switch (errorCode)
 	{
@@ -18,11 +34,14 @@ void	printError(int errorCode)
 	case 3:
 		fileName = "../files/errors/badUnitSelected.txt";
 		break;
+	case 4:
+		fileName= "../files/errors/badValues.txt";
 	default:
 		fileName = "../files/errors/default.txt";
 		break;
 	}
-	std::ifstream inf(fileName, std::ifstream::in);
+	printFile(fileName);
+	/*std::ifstream inf(fileName, std::ifstream::in); // old code that i will keep around incase i find a bug and need to come back to this
 	if (!inf)
 	{
 		std::cout << "could not open file.";
@@ -32,5 +51,5 @@ void	printError(int errorCode)
 	{
 		std::getline(inf, strInput);
 		std::cout << strInput << '\n';
-	}
+	}*/
 }
