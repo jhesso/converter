@@ -43,3 +43,4 @@ converter.vcxproj.filters
 converter.vcxproj.user
 Makefile
 testing
+release
